@@ -1,18 +1,32 @@
+import User from "../models/User";
 import Client from "../models/Client";
-import Person from "../models/Person";
-import { RoomType } from "../enum/RoomType";
-import Reservation from "../models/Reservation";
 import Room from "../models/Room";
+import { RoomType } from "../enum/RoomType";
 
 export default class Database {
 
-    public person : Person [] = [];
+    public client: Client[] = [];
+    public person: User[] = [];
+    public room: Room[] = [];
 
-    public client: Client [] = [];
+    //aqui estou criando para ficar valor certo da
+    //de casal, 20 de solteiro e 10 luxo.
+    constructor() {
+        for (let i = 1; i <= 20; i++) {
+            this.room.push(
+                new Room(i, RoomType.CASAL)
+            );
+        }
+        for (let i = 21; i <= 40; i++) {
+            this.room.push(
+                new Room(i, RoomType.SOLTEIRO)
+            );
+        }
+        for (let i = 41; i <= 50; i++) {
+            this.room.push(
+                new Room(i, RoomType.LUXO)
+            );
+        }
+    }
 
-    public roomtype: RoomType [] =[];
-
-    public reservation: Reservation [] = [];
-
-    public room : Room []=[];
 }

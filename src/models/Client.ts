@@ -1,17 +1,21 @@
-import Person from "./Person";
+import { UserRole } from "../enum/UserRole";
+import User from "./User";
 
-export default class Client extends Person{
-
-    private name: string;
-
-    constructor(name: string, cpf:number) {
-        super(cpf);
-        this.name = name;
+export default class Client extends User {
+     private cep: number;
+    constructor(cep: number, cpf: number,  name: string, role: UserRole) {
+        super(cpf, name, UserRole.CLIENTE);
+        this.cep = cep;
+        
     }
-    public get getName(): string {
-        return this.name;
+    public getCep(): number {
+        return this.cep;
     }
-    public set setName(newName: string) {
-        this.name = newName;
+    public setCep(cep: number): void {
+        this.cep = cep;
+    }
+    public showData(): void {
+     console.log(`Cliente CPF: ${this.getCpf()}, Nome: ${this.getName()}, CEP: ${this.cep}, Role: ${this.getRole()}`);
+        
     }
 }

@@ -1,41 +1,42 @@
 import { RoomType } from "../enum/RoomType";
-import Database from "../database/Database";
 
-
-export default class Room {
-
-    private number: number;
+export default class Room  {
+    private numberRoom: number;
     private type: RoomType;
-    private days: number;
+    private value: number = 0;
 
-    constructor(number: number, type: RoomType, days: number) {
-        this.number = number;
+    constructor(numberRoom: number, type: RoomType) {
+        this.numberRoom = numberRoom;
         this.type = type;
-        this.days = days;
+
+        if (type === RoomType.CASAL) {
+            this.value = 150;
+        }
+        if (type === RoomType.SOLTEIRO) {
+            this.value = 100;
+        }
+        if (type === RoomType.LUXO) {
+            this.value = 200;
+        }
     }
 
     public get getNumber(): number {
-        return this.number;
+        return this.numberRoom;
     }
 
-    public get getType(): string {
+    public get getType(): RoomType {
         return this.type;
     }
 
-    public get getDays(): number {
-        return this.days;
-    }
+    public set setType(newType: RoomType) {
+        this.type = newType;
+    } 
 
-    public set setDays(newDays: number) {
-        this.days = newDays;
+    public get getValue(): number {
+        return this.value;
     }
 
     public showData(): void {
-
-        console.log("Quarto: " + this.number);
-
-        console.log("Tipo: " + this.type);
-
-        console.log("Dias: " + this.days);
+        console.log(`Quarto: ${this.numberRoom} | Tipo: ${this.type} | Diária: R$ ${this.value}`);
     }
 }
