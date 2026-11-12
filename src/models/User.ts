@@ -1,6 +1,8 @@
 import { UserRole } from "../enum/UserRole";
+import Ilistable from "../interface/Ilistable";
 
-export default abstract class User {
+
+export default abstract class User implements Ilistable {
   public cpf: number;
   public name: string;
   public role: UserRole;

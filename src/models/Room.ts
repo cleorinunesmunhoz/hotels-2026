@@ -1,6 +1,7 @@
 import { RoomType } from "../enum/RoomType";
+import Ilistable from "../interface/Ilistable";
 
-export default class Room  {
+export default class Room implements Ilistable {
     private numberRoom: number;
     private type: RoomType;
     private value: number = 0;

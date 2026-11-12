@@ -8,5 +8,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/prompt-sync": "^4.2.3"
+  }
 }

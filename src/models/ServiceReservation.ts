@@ -1,9 +1,9 @@
 import Room from "./Room";
 import Client from "./Client";
 import Database from "../database/Database";
-import Listable from "../interface/Listable";
+import Ilistable from "../interface/Ilistable";
 
-export default class Reservation implements Listable {
+export default class Reservation  implements Ilistable {
     private client: Client;
     private room: Room;
     private days: number;
@@ -41,7 +41,7 @@ export default class Reservation implements Listable {
     public setPayer(cpf: number): string;
     public setPayer(payer: Client | number): string {
         const clientFound = typeof payer === "number" 
-            ? this.database.client.find((c) => c.getCpf() === payer) 
+            ? this.database.user.find((c) => c.getCpf() === payer) 
             : payer;
 
         if (!clientFound) return "Cliente não encontrado!";
